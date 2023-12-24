@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: The Importance of Building a Strong Brand Identity	</title>
-	<atom:link href="/2023/06/22/the-importance-of-building-a-strong-brand-identity/feed/" rel="self" type="application/rss+xml" />
-	<link>/2023/06/22/the-importance-of-building-a-strong-brand-identity/</link>
+	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
 	<description></description>
 	<lastBuildDate>Fri, 30 Jun 2023 10:16:59 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,7 +20,7 @@
 	<item>
 		<title>
 		By: Gay Barton		</title>
-		<link>/2023/06/22/the-importance-of-building-a-strong-brand-identity/#comment-23</link>
+		<link>./../index.html#comment-23</link>
 
 		<dc:creator><![CDATA[Gay Barton]]></dc:creator>
 		<pubDate>Fri, 30 Jun 2023 10:16:59 +0000</pubDate>
@@ -34,7 +34,7 @@
 		<item>
 		<title>
 		By: Hilton Runte		</title>
-		<link>/2023/06/22/the-importance-of-building-a-strong-brand-identity/#comment-22</link>
+		<link>./../index.html#comment-22</link>
 
 		<dc:creator><![CDATA[Hilton Runte]]></dc:creator>
 		<pubDate>Wed, 28 Jun 2023 03:16:53 +0000</pubDate>
@@ -48,7 +48,7 @@
 		<item>
 		<title>
 		By: Selena Kuphal		</title>
-		<link>/2023/06/22/the-importance-of-building-a-strong-brand-identity/#comment-24</link>
+		<link>./../index.html#comment-24</link>
 
 		<dc:creator><![CDATA[Selena Kuphal]]></dc:creator>
 		<pubDate>Mon, 26 Jun 2023 18:05:18 +0000</pubDate>
