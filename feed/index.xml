@@ -9,8 +9,8 @@
 
 <channel>
 	<title>IBA-JU Business Club</title>
-	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
-	<link>./../index.html</link>
+	<atom:link href="/feed/" rel="self" type="application/rss+xml" />
+	<link></link>
 	<description>Leadership Transcends From Here</description>
 	<lastBuildDate>Tue, 26 Dec 2023 00:53:32 +0000</lastBuildDate>
 	<language>en-US</language>
@@ -21,13 +21,13 @@
 	<generator>https://wordpress.org/?v=6.4.2</generator>
 	<item>
 		<title>Career Talk</title>
-		<link>./../career-talk/index.html</link>
+		<link>/career-talk/</link>
 		
 		<dc:creator><![CDATA[ibajubc]]></dc:creator>
 		<pubDate>Tue, 26 Dec 2023 00:20:13 +0000</pubDate>
 				<category><![CDATA[Events]]></category>
 		<category><![CDATA[events]]></category>
-		<guid isPermaLink="false">./../index.html?p=906</guid>
+		<guid isPermaLink="false">/?p=906</guid>
 
 					<description><![CDATA[Exploring Knowledge Horizons: IBA-JU Seminars and Workshops IBA-JU Business Club stands as a beacon of intellectual growth, hosting impactful seminars and workshops that empower students for the challenges of the business world. A prime illustration is the Career Talk conference, where executive officers from real professional works served as esteemed guests and keynote speakers.  These [&#8230;]]]></description>
 										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="906" class="elementor elementor-906">
@@ -48,13 +48,13 @@
 			</item>
 		<item>
 		<title>Embezzled</title>
-		<link>./../embezzled/index.html</link>
+		<link>/embezzled/</link>
 		
 		<dc:creator><![CDATA[ibajubc]]></dc:creator>
 		<pubDate>Tue, 26 Dec 2023 00:18:18 +0000</pubDate>
 				<category><![CDATA[Events]]></category>
 		<category><![CDATA[events]]></category>
-		<guid isPermaLink="false">./../index.html?p=900</guid>
+		<guid isPermaLink="false">/?p=900</guid>
 
 					<description><![CDATA[Unveiling the Mystery of Financial Crimes: &#8220;Embezzled&#8221; Recap   &#8220;Embezzled&#8221; wasn&#8217;t just a webinar, it was a portal into the hidden world of financial crime. Hosted by the IBA-JU Business Club, this two-part series empowered aspiring investigators with insights from experts like Mohammad Shahriar Hossain and Anastacia Mukanova. They tackled money laundering, fraud, and more, [&#8230;]]]></description>
 										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="900" class="elementor elementor-900">
@@ -74,13 +74,13 @@
 			</item>
 		<item>
 		<title>Elicit</title>
-		<link>./../elicit/index.html</link>
+		<link>/elicit/</link>
 		
 		<dc:creator><![CDATA[ibajubc]]></dc:creator>
 		<pubDate>Tue, 26 Dec 2023 00:15:13 +0000</pubDate>
 				<category><![CDATA[Events]]></category>
 		<category><![CDATA[events]]></category>
-		<guid isPermaLink="false">./../index.html?p=893</guid>
+		<guid isPermaLink="false">/?p=893</guid>
 
 					<description><![CDATA[Elicit, the gateway to a vibrant journey at IBA-JU Business Club!    Our club is designed to identify and nurture the latent potential within the incoming talent pool and we believe that “Elicit”, a rebranded form of our recruitment program, is the gateway for  emerging leaders to embark on a dynamic voyage in the business [&#8230;]]]></description>
 										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="893" class="elementor elementor-893">
@@ -100,13 +100,13 @@
 			</item>
 		<item>
 		<title>No Limit To 60 Minutes</title>
-		<link>./../no-limit-to-60-minutes/index.html</link>
+		<link>/no-limit-to-60-minutes/</link>
 		
 		<dc:creator><![CDATA[ibajubc]]></dc:creator>
 		<pubDate>Tue, 26 Dec 2023 00:13:07 +0000</pubDate>
 				<category><![CDATA[Events]]></category>
 		<category><![CDATA[events]]></category>
-		<guid isPermaLink="false">./../index.html?p=887</guid>
+		<guid isPermaLink="false">/?p=887</guid>
 
 					<description><![CDATA[“No Limits to 60 Minutes” is the flag bearer of a diversified mentorship and networking event that brings together today&#8217;s most inspiring and transforming business leaders to share their life-changing experiences and valuable insights. The mentors bring in their experience while on the other hand, the current students bring in their new thoughts- a combination [&#8230;]]]></description>
 										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="887" class="elementor elementor-887">
@@ -126,13 +126,13 @@
 			</item>
 		<item>
 		<title>Crack The Case</title>
-		<link>./../crack-the-case/index.html</link>
+		<link>/crack-the-case/</link>
 		
 		<dc:creator><![CDATA[ibajubc]]></dc:creator>
 		<pubDate>Tue, 26 Dec 2023 00:04:37 +0000</pubDate>
 				<category><![CDATA[Events]]></category>
 		<category><![CDATA[events]]></category>
-		<guid isPermaLink="false">./../index.html?p=878</guid>
+		<guid isPermaLink="false">/?p=878</guid>
 
 					<description><![CDATA[Crack The Case is a yearly specialized Business Case Solving Workshop designed for IBA-JU Business students interested in navigating the world of Business Competitions. Our respected alumni along with other renowned teams in the business competition arena, who have excelled in such competitions before, join us to clarify the process of solving business cases.   [&#8230;]]]></description>
 										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="878" class="elementor elementor-878">
@@ -152,13 +152,13 @@
 			</item>
 		<item>
 		<title>Transcend</title>
-		<link>./../transcend/index.html</link>
+		<link>/transcend/</link>
 		
 		<dc:creator><![CDATA[ibajubc]]></dc:creator>
 		<pubDate>Mon, 25 Dec 2023 23:49:23 +0000</pubDate>
 				<category><![CDATA[Events]]></category>
 		<category><![CDATA[events]]></category>
-		<guid isPermaLink="false">./../index.html?p=861</guid>
+		<guid isPermaLink="false">/?p=861</guid>
 
 					<description><![CDATA[&#8220;Transcend&#8221; serves as a curated panel discussion and FGD event, creating a convergence for industry leaders and students to engage in a dialogue about the country&#8217;s current economy and beyond.   This event provides students with a unique opportunity to openly interact with distinguished leaders, gaining firsthand insights into the country&#8217;s industries. The aim is [&#8230;]]]></description>
 										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="861" class="elementor elementor-861">
@@ -178,13 +178,13 @@
 			</item>
 		<item>
 		<title>Breaking Brand</title>
-		<link>./../breaking-brand/index.html</link>
+		<link>/breaking-brand/</link>
 		
 		<dc:creator><![CDATA[ibajubc]]></dc:creator>
 		<pubDate>Mon, 25 Dec 2023 23:36:48 +0000</pubDate>
 				<category><![CDATA[Events]]></category>
 		<category><![CDATA[events]]></category>
-		<guid isPermaLink="false">./../index.html?p=850</guid>
+		<guid isPermaLink="false">/?p=850</guid>
 
 					<description><![CDATA[&#8220;Breaking Brand&#8221; is a signature intra-business case competition of IBA-JU BC that brings together the vibrancy of creativity and strategic thinking. Tailored for the aspiring juniors of IBA-JU, this event invites teams of 3-4 members to collaborate, guided by the proficient seniors, in a spirited quest for solutions.   For juniors without prior business competition [&#8230;]]]></description>
 										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="850" class="elementor elementor-850">
