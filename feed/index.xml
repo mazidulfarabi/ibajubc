@@ -12,13 +12,21 @@
 	<atom:link href="/feed/" rel="self" type="application/rss+xml" />
 	<link></link>
 	<description>Transcending Leadership</description>
-	<lastBuildDate>Wed, 27 Dec 2023 10:12:47 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 27 Dec 2023 13:04:12 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.4.2</generator>
+
+<image>
+	<url>/wp-content/uploads/IBA-JU-Business-Club-Logo-PhotoRoom.png-PhotoRoom-2-1-150x133.png</url>
+	<title>IBA-JU Business Club</title>
+	<link></link>
+	<width>32</width>
+	<height>32</height>
+</image> 
 	<item>
 		<title>Elicit</title>
 		<link>/elicit/</link>
@@ -82,7 +90,7 @@
 		<pubDate>Wed, 27 Dec 2023 00:04:37 +0000</pubDate>
 				<category><![CDATA[Events]]></category>
 		<category><![CDATA[events]]></category>
-		<category><![CDATA[workshops-and-seminars]]></category>
+		<category><![CDATA[skill-building-events]]></category>
 		<guid isPermaLink="false">/?p=878</guid>
 
 					<description><![CDATA[Crack The Case is a yearly specialized Business Case Solving Workshop designed for IBA-JU Business students interested in navigating the world of Business Competitions. Our respected alumni along with other renowned teams in the business competition arena, who have excelled in such competitions before, join us to clarify the process of solving business cases.   [&#8230;]]]></description>
