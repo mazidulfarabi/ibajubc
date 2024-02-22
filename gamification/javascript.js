@@ -113,6 +113,7 @@ function startTimer() {
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
             countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            countdownDisplay.style.color = "color: rgb(255, 42, 42);";
         } else {
             clearInterval(countdownInterval);
             countdownDisplay.textContent = "0:00";

@@ -2,6 +2,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const u = urlParams.get('u')/33;
 const r = urlParams.get('r')/44;
+var sound = new Audio("bbsong.mp3"); // buffers automatically when created
 
 function openModal() {
     document.getElementById("overlay").style.display = "block";
@@ -12,6 +13,7 @@ function openModal() {
 function closeModal() {
     document.getElementById("overlay").style.display = "none";
     document.getElementById("modal").style.display = "none";
+    sound.play();
 }
 
 // Open the modal initially on page load

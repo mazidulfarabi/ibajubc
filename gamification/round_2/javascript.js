@@ -1,6 +1,8 @@
 // Get the value of the 'score' query parameter from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const u = urlParams.get('u')/22;
+var snd = new Audio("press.mp3"); // buffers automatically when created
+var bg = new Audio("bb.mp3"); // buffers automatically when created
 
 function openModal() {
     document.getElementById("overlay").style.display = "block";
@@ -170,6 +172,7 @@ br.addEventListener("click", (e) => {
 
 function up() {
     animKeys(bu);
+    snd.play();
     if (checkYboundry("u")) {
         thingie.style.top = thingie.offsetTop - step + "px";
         updateEmo(false);
@@ -178,6 +181,7 @@ function up() {
 
 function down() {
     animKeys(bd);
+    snd.play();
     if (checkYboundry("d")) {
         thingie.style.top = thingie.offsetTop + step + "px";
         updateEmo(false);
@@ -186,6 +190,7 @@ function down() {
 
 function left() {
     animKeys(bl);
+    snd.play();
     if (checkXboundry("l")) {
         thingie.style.left = thingie.offsetLeft - step + "px";
     }
@@ -194,6 +199,7 @@ function left() {
 
 function right() {
     animKeys(br);
+    snd.play();
     if (checkXboundry("r")) {
         thingie.style.left = thingie.offsetLeft + step + "px";
     }
@@ -519,6 +525,8 @@ function startGame() {
 
     // Hide start game button
     startGameBtn.style.display = "none";
+
+    bg.play();
 }
 
 let timeLeft = 40;
