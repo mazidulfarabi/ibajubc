@@ -7,13 +7,13 @@ function openModal() {
 function closeModal() {
     document.getElementById("overlay").style.display = "none";
     document.getElementById("modal").style.display = "none";
+    var snd = new Audio("bbsong.mp3"); // buffers automatically when created
+    snd.play();
 }
 
 // Open the modal initially on page load
 window.onload = function() {
     openModal();
-    var snd = new Audio("bbsong.mp3"); // buffers automatically when created
-    snd.play();
 };
 const cards = document.querySelectorAll(".card");
 const countdownDisplay = document.getElementById('countdown');
