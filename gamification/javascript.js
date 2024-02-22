@@ -102,7 +102,7 @@ cards.forEach(card => {
 });
 
 // Countdown Timer
-const totalTime = 60; // 1 minute
+const totalTime = 65; // 65 seconds
 let timeLeft = totalTime;
 let countdownInterval;
 
