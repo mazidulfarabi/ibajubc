@@ -1,0 +1,168 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background-color: #010630;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* Close button styles */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background-color: #ff0000; /* Red */
+  color: #fff; /* White */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.close-btn:hover {
+  background-color: #cc0000; /* Darker Red */
+}
+
+/* Next Page button styles */
+#nextRoundBtn {
+  background-color: #4CAF50; /* Green */
+  color: #fff; /* White */
+  border: none;
+  padding: 20px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 45%;
+}
+
+#nextRoundBtn:hover {
+  background-color: #45a049; /* Darker Green */
+}
+/* Overlay styles */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 1000;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+#container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #343a40;
+}
+
+#timeremaining,
+#score {
+  color: #343a40;
+}
+
+#timeremainingvalue {
+  font-weight: bold;
+}
+
+#scorevalue {
+  font-weight: bold;
+}
+
+#question {
+  margin-top: 20px;
+  font-size: 2em;
+  color: #343a40;
+}
+
+.box {
+  margin: 20px 10px;
+  width: 100px;
+  height: 100px;
+  background-color: #dee2e6;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.box:hover {
+  background-color: #adb5bd;
+}
+
+#instruction {
+  color: #6c757d;
+}
+
+#gameOver {
+  margin-top: 40px;
+  font-size: 2em;
+  color: #dc3545;
+  display: none;
+}
+
+#gameOver h2 {
+  margin: 0 0 10px;
+}
+
+#gameOver p {
+  margin: 0;
+}
+
+#buttons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#startreset {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#startreset:hover {
+  background-color: #0056b3;
+}

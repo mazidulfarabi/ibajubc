@@ -1,0 +1,41 @@
+<title>Maze Game</title>
+<link rel="stylesheet" href="style.css">
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+    
+<!-- Modal -->
+<div class="modal" id="modal">
+    <h2>Planning and Problem Solving Test</h2>
+    <p>Don't press "Start Game" just yet. Take a moment to analyze the map and strategize your way out of this maze. Can you reach your personal and organizational goals by finding the fastest path just like Walter and Jesse did by going out of the box?</p>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+</div>
+
+<div id="container">
+	<div class="instruction" id = "instruction">Press Arrow Buttons Below to Navigate.</div>
+    <div class="mbox">
+        <div id="maze">
+            <div id="thingie">
+                <div class="emo" id="emo">🥺</div>
+            </div>
+            <div id="home">
+                <div class="emo">🏠</div>
+            </div>
+            <div class="barrier" id="top"></div>
+            <div class="barrier" id="bottom"></div>
+        </div>
+    </div>
+    <div id="timer">Time left: <b>40s</b></div>
+    <div class="controls">
+        <div class="buttons">
+            <button class="btn" id="bu"><div class="chevron">↑</div></button>
+            <button class="btn" id="bd"><div class="chevron">↓</div></button>
+            <button class="btn" id="bl"><div class="chevron">←</div></button>
+            <button class="btn" id="br"><div class="chevron">→</div></button>
+        </div>
+    </div>
+    <!-- Next Round Button (Initially Hidden) -->
+    <button id="nextRoundBtn" style="display: none;" onclick="redirectToNextPage()">Next Round</button>
+    <button id="startGameBtn">Start Game</button>
+</div>
+
+<script src="javascript.js"></script>

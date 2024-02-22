@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">  
+<title>Memory Card Game in JavaScript | CodingNepal</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+    
+<!-- Modal -->
+<div class="modal" id="modal">
+    <h2>Fast Decision Making Test</h2>
+    <p>Are you ready to break bad and set out your inner Heisenberg? In this memory game, we'll test your ability to make split-second decisions under intense time pressure. With cards flipping at lightning speed, trust your intuition and memory to match pairs before time runs out.</p>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+</div>
+
+<div class="wrapper">
+  <div id="game-info">
+    <header>
+      <h1>Memory Game</h1>
+    </header>
+    Time remaining: <span id="countdown">2:00</span>
+    <div>Flips: <span id="flips">0</span></div>
+    <div>Matched pairs: <span id="pairs">0/8</span></div>
+    <div id="message"></div>
+    <button id="startGameBtn">Start Game</button> <!-- Start Game Button -->
+  </div>
+  <ul class="cards">
+    <!-- Cards content here -->
+    <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-1.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-6.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-3.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-2.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-1.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-5.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-2.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-6.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-3.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-4.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-5.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-4.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-4.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-4.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-4.png" alt="card-img">
+        </div>
+      </li>
+      <li class="card">
+        <div class="view front-view">
+          <img src="images/que_icon.svg" alt="icon">
+        </div>
+        <div class="view back-view">
+          <img src="images/img-4.png" alt="card-img">
+        </div>
+      </li>
+    </ul>
+    <!-- Next Round Button (Initially Hidden) -->
+    <button id="nextRoundBtn" style="display: none;" onclick="redirectToNextPage()">Next Round</button>
+  </div>
+  </ul>
+</div>
+
+<script src="javascript.js"></script>
+
+</body>
+</html>
