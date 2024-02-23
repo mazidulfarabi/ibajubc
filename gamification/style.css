@@ -129,6 +129,7 @@ background-color: #0056b3;
   width: 400px;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0 auto;
 }
 .cards .card{
   cursor: pointer;
@@ -191,6 +192,7 @@ background-color: #0056b3;
   .cards{
     height: 350px;
     width: 350px;
+    margin: 0 auto;
   }
   .card .front-view img{
     width: 75px;
@@ -204,6 +206,7 @@ background-color: #0056b3;
   .cards{
     height: 300px;
     width: 300px;
+    margin: 0 auto;
   }
   .card .front-view img{
     width: 70px;
