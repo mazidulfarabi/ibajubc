@@ -52,6 +52,8 @@ function matchCards(img1, img2) {
         
             // Calculate score as the sum of time remaining and matched pairs
             matched = (timeLeft/2).toFixed(1) + 8;
+
+            alert(`Congratulations! You matched all the crystal pairs 🥳`);
         
             // Show the Next Round button
             document.getElementById("nextRoundBtn").style.display = "block";
