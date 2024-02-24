@@ -27,21 +27,27 @@ let flips = 0;
 let cardOne, cardTwo;
 let disableDeck = true; // Disable card flipping initially
 
-function flipCard({target: clickedCard}) {
-    if(cardOne !== clickedCard && !disableDeck) {
+function flipCard({ target: clickedCard }) {
+    // Check if the timer has expired
+    if (timeLeft <= 0) {
+        return; // Prevent further card flips if the timer has expired
+    }
+
+    if (cardOne !== clickedCard && !disableDeck) {
         flips++;
         flipsDisplay.textContent = flips;
         clickedCard.classList.add("flip");
-        if(!cardOne) {
-            return cardOne = clickedCard;
+        if (!cardOne) {
+            return (cardOne = clickedCard);
         }
         cardTwo = clickedCard;
         disableDeck = true;
         let cardOneImg = cardOne.querySelector(".back-view img").src,
-        cardTwoImg = cardTwo.querySelector(".back-view img").src;
+            cardTwoImg = cardTwo.querySelector(".back-view img").src;
         matchCards(cardOneImg, cardTwoImg);
     }
 }
+
 
 function matchCards(img1, img2) {
     if(img1 === img2) {
