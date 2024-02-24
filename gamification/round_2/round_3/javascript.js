@@ -80,6 +80,8 @@ function endGame() {
     hide("wrong");
     playing = false;
 
+    alert(`Game over. Thank you for playing all the rounds. Press OK, then Next to submit your score.`);
+
     // Show the Next Round button
     document.getElementById("nextRoundBtn").style.display = "block";
 }
