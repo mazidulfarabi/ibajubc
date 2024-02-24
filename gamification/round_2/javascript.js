@@ -529,7 +529,7 @@ function startGame() {
     bg.play();
 }
 
-let timeLeft = 45;
+let timeLeft = 60;
 let timerInterval;
 
 function startTimer() {
