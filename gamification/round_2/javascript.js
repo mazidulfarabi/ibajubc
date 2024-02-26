@@ -1,6 +1,6 @@
-// Get the value of the 'score' query parameter from the URL
-const urlParams = new URLSearchParams(window.location.search);
-const u = urlParams.get('u')/22;
+// Retrieving data
+const u = window.atob(sessionStorage.getItem('u'));
+
 var snd = new Audio("press.mp3"); // buffers automatically when created
 var bg = new Audio("bb.mp3"); // buffers automatically when created
 
@@ -562,7 +562,7 @@ function endGame(outcome) {
 
         // Create a new element to display points
         const pointsDisplay = document.createElement("div");
-        score = (timeLeft/3).toFixed(1)
+        score = timeLeft/3;
         pointsDisplay.textContent = `Score: ${score}`;
         pointsDisplay.style.fontWeight = "bold"
         pointsDisplay.style.fontFamily = "Arial, sans-serif";
@@ -591,5 +591,16 @@ function endGame(outcome) {
 
 // Function to redirect to the next page with score as query parameter
 function redirectToNextPage() {
-    window.location.href = "round_3/index.html?u=" + u*33 + "+" + "&r=" + score*44;
+    // Store multiple values in sessionStorage
+    const data = {
+    u: window.btoa(u),
+    r: window.btoa(score),
+    };
+    sessionStorage.setItem('data', JSON.stringify(data));
+    window.location.href = "round_3/index.html";
 }
+
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+});

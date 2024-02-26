@@ -1,14 +1,15 @@
-// Get the value of the 'score' query parameter from the URL
-const urlParams = new URLSearchParams(window.location.search);
-const u = urlParams.get('u')/55;
-const r = urlParams.get('r')/66;
-const l = urlParams.get('l')/77;
+// Retrieve and parse the JSON data from sessionStorage
+const storedData = JSON.parse(sessionStorage.getItem('data'));
+
+// Access individual values
+const u = window.atob(storedData.u);
+const r = window.atob(storedData.r);
+const l = window.atob(storedData.l);
 
 // Set the value of the input field
 document.getElementById("u").value = u;
 document.getElementById("r").value = r;
 document.getElementById("l").value = l;
-console.log(u,r,l);
 
 //selector from your HTML form
 $('#my-form').submit(function(e) {
@@ -38,4 +39,9 @@ $('#my-form').submit(function(e) {
       }
     }  
   });
+});
+
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
 });

@@ -57,7 +57,7 @@ function matchCards(img1, img2) {
             clearInterval(countdownInterval); // Stop the timer
         
             // Calculate score as the sum of time remaining and matched pairs
-            matched = (timeLeft/2).toFixed(1) + 8;
+            matched = 8 + (timeLeft/3);
 
             alert(`Congratulations! You matched all the crystal pairs 🥳`);
         
@@ -133,5 +133,12 @@ function startTimer() {
 }
 
 function redirectToNextPage() {
-    window.location.href = "round_2/index.html?u=" + matched*22;
+    // Storing data
+    sessionStorage.setItem('u', window.btoa(matched));
+    window.location.href = "round_2/index.html";
 }
+
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+});

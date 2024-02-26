@@ -1,7 +1,10 @@
-// Get the value of the 'score' query parameter from the URL
-const urlParams = new URLSearchParams(window.location.search);
-const u = urlParams.get('u')/33;
-const r = urlParams.get('r')/44;
+// Retrieve and parse the JSON data from sessionStorage
+const storedData = JSON.parse(sessionStorage.getItem('data'));
+
+// Access individual values
+const u = window.atob(storedData.u);
+const r = window.atob(storedData.r);
+
 var sound = new Audio("bbsong.mp3"); // buffers automatically when created
 
 function openModal() {
@@ -186,5 +189,17 @@ function generateQA() {
 
 // Function to redirect to the next page with score as query parameter
         function redirectToNextPage() {
-            window.location.href = "submit/index.html?u=" + u*55 + "+" + "&r=" + r*66 + "&l=" + score*77;
+            // Store multiple values in sessionStorage
+            const data = {
+            u: window.btoa(u),
+            r: window.btoa(r),
+            l: window.btoa(score)
+            };
+            sessionStorage.setItem('data', JSON.stringify(data));
+            window.location.href = "submit/index.html";
         }
+
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+history.pushState(null, null, document.URL);
+});
