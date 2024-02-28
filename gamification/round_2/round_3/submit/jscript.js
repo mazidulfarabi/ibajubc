@@ -11,7 +11,7 @@ document.getElementById("u").value = u;
 document.getElementById("r").value = r;
 document.getElementById("l").value = l;
 
-document.getElementById("s").value = u+r+l;
+document.getElementById("s").value = +u + +r + +l;
 
 //selector from your HTML form
 $('#my-form').submit(function(e) {
