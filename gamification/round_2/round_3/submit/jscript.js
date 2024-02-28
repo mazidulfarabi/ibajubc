@@ -11,6 +11,8 @@ document.getElementById("u").value = u;
 document.getElementById("r").value = r;
 document.getElementById("l").value = l;
 
+document.getElementById("s").value = u+r+l;
+
 //selector from your HTML form
 $('#my-form').submit(function(e) {
   //prevent the form from submiting so we can post to the google form
