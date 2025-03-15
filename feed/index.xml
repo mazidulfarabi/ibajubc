@@ -12,7 +12,7 @@
 	<atom:link href="/feed/" rel="self" type="application/rss+xml" />
 	<link></link>
 	<description>Transcending Leadership</description>
-	<lastBuildDate>Sun, 02 Mar 2025 16:16:49 +0000</lastBuildDate>
+	<lastBuildDate>Sat, 15 Mar 2025 19:03:19 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -163,13 +163,17 @@
 						<div class="elementor-element elementor-element-fd4b2b9 elementor-widget elementor-widget-image" data-id="fd4b2b9" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.20.0 - 13-03-2024 */
-.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>										<img fetchpriority="high" decoding="async" width="960" height="502" src="/wp-content/uploads/Breaking-Brand-25-Banner.png" class="attachment-full size-full wp-image-2670" alt="" srcset="/wp-content/uploads/Breaking-Brand-25-Banner.png 960w, /wp-content/uploads/Breaking-Brand-25-Banner-300x157.png 300w, /wp-content/uploads/Breaking-Brand-25-Banner-768x402.png 768w" sizes="(max-width: 960px) 100vw, 960px" />													</div>
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>										<img fetchpriority="high" decoding="async" width="1920" height="1005" src="/wp-content/uploads/banner-bb25.png" class="attachment-full size-full wp-image-2689" alt="" srcset="/wp-content/uploads/banner-bb25.png 1920w, /wp-content/uploads/banner-bb25-300x157.png 300w, /wp-content/uploads/banner-bb25-1024x536.png 1024w, /wp-content/uploads/banner-bb25-768x402.png 768w, /wp-content/uploads/banner-bb25-1536x804.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" />													</div>
 				</div>
 					</div>
 		</div>
 				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-11553de" data-id="11553de" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-44920d5 elementor-widget elementor-widget-heading" data-id="44920d5" data-element_type="widget" data-widget_type="heading.default">
+						<div class="elementor-element elementor-element-fe774c5 elementor-widget elementor-widget-text-editor" data-id="fe774c5" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Pubali Bank PLC Presents</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-44920d5 elementor-widget elementor-widget-heading" data-id="44920d5" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.20.0 - 13-03-2024 */
 .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h2 class="elementor-heading-title elementor-size-default">BREAKING BRAND 2025</h2>		</div>
