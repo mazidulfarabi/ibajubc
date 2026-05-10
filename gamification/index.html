@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Brand - Team Member Quiz</title>
+    <style>
+        :root {
+            --bg0: #020611;
+            --bg1: #061a33;
+            --panel: rgba(8, 15, 28, 0.62);
+            --panel-strong: rgba(5, 10, 20, 0.82);
+            --stroke: rgba(120, 200, 255, 0.18);
+            --stroke-strong: rgba(120, 200, 255, 0.32);
+            --neon: #35f3ff;
+            --neon-soft: rgba(53, 243, 255, 0.35);
+            --text: rgba(255, 255, 255, 0.92);
+            --muted: rgba(255, 255, 255, 0.68);
+            --muted2: rgba(255, 255, 255, 0.52);
+            --good: #0dbb4f;
+            --good-stroke: rgba(13, 187, 79, 0.55);
+            --radius-xl: 22px;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow: 0 22px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body { height: 100%; }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+            background-color: #061a33;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 80px 80px;
+            opacity: 0.16;
+            transform: perspective(900px) rotateX(58deg) translateY(-120px);
+            transform-origin: top center;
+            filter: blur(0.2px);
+        }
+
+        .app {
+            min-height: 100%;
+            display: grid;
+            place-items: center;
+            padding: clamp(14px, 3vw, 28px);
+        }
+
+        .shell {
+            width: min(1080px, 100%);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--stroke);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 70%), var(--panel);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            backdrop-filter: blur(14px);
+        }
+
+        .topbar {
+            padding: 18px clamp(16px, 3vw, 28px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            border-bottom: 1px solid var(--stroke);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .breaking-brand {
+            font-weight: 900;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            display: grid;
+            gap: 2px;
+            line-height: 1.0;
+        }
+
+        .breaking-brand .row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: clamp(18px, 2.2vw, 28px);
+        }
+
+        .el {
+            display: inline-grid;
+            place-items: center;
+            padding: 4px 10px;
+            border-radius: 10px;
+            background: rgba(0, 64, 255, 0.16);
+            border: 1px solid var(--good-stroke);
+            color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 18px rgba(5, 17, 245, 0.18);
+        }
+
+        .tagline {
+            text-align: right;
+            color: var(--muted);
+            font-size: clamp(12px, 1.2vw, 14px);
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+        }
+
+        .tagline strong {
+            color: rgba(255, 255, 255, 0.92);
+            text-shadow: 0 0 22px rgba(53, 243, 255, 0.25);
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .content {
+            padding: clamp(16px, 3vw, 28px);
+        }
+
+        .layout {
+            display: grid;
+            gap: clamp(14px, 2.2vw, 22px);
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 900px) {
+            .layout {
+                grid-template-columns: 1.2fr 0.8fr;
+                align-items: start;
+            }
+        }
+
+        .card {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--stroke);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 70%), var(--panel-strong);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+        }
+
+        .card-hd {
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border-bottom: 1px solid var(--stroke);
+        }
+
+        .card-hd h2 {
+            margin: 0;
+            font-size: 14px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted2);
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .progress-rail {
+            display: block;
+            height: 8px;
+            width: 160px;
+            border-radius: 99px;
+            border: 1px solid var(--stroke);
+            background: rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, rgba(53, 243, 255, 0.45), rgba(53, 243, 255, 0.95));
+            background-color: rgba(53, 243, 255, 0.85);
+            box-shadow: 0 0 22px rgba(53, 243, 255, 0.25);
+            transition: width 260ms ease;
+        }
+
+        .card-bd { padding: 18px; }
+
+        .hero {
+            display: grid;
+            gap: 12px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(20px, 3.2vw, 34px);
+            line-height: 1.08;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: clamp(14px, 1.7vw, 16px);
+        }
+
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .btn-row .btn {
+            flex: 1 1 180px;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .btn {
+            border-radius: 14px;
+            border: 1px solid var(--stroke-strong);
+            background: rgba(0, 0, 0, 0.15);
+            color: rgba(255, 255, 255, 0.92);
+            padding: 12px 14px;
+            min-height: 46px;
+            transition: transform 120ms ease, background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            border-color: rgba(53, 243, 255, 0.55);
+            box-shadow: 0 0 0 4px rgba(53, 243, 255, 0.10);
+        }
+
+        .btn-primary {
+            background: linear-gradient(180deg, rgba(53, 243, 255, 0.22), rgba(0, 0, 0, 0.18));
+            border-color: rgba(53, 243, 255, 0.65);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 0 4px rgba(53, 243, 255, 0.16), 0 0 40px rgba(53, 243, 255, 0.18);
+        }
+
+        .question {
+            margin-top: 12px;
+            font-size: clamp(16px, 2.0vw, 20px);
+            line-height: 1.45;
+            letter-spacing: 0.2px;
+        }
+
+        .options {
+            margin-top: 14px;
+            display: grid;
+            gap: 10px;
+        }
+
+        @media (min-width: 900px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .option-btn {
+            width: 100%;
+            text-align: left;
+            padding: 14px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(53, 243, 255, 0.32);
+            background: rgba(0, 0, 0, 0.12);
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.35;
+            transition: transform 120ms ease, background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-1px);
+            border-color: rgba(53, 243, 255, 0.62);
+            background: rgba(53, 243, 255, 0.07);
+            box-shadow: 0 0 0 4px rgba(53, 243, 255, 0.10);
+        }
+
+        .option-btn:active {
+            transform: translateY(0px) scale(0.99);
+        }
+
+        .side {
+            display: grid;
+            gap: clamp(14px, 2vw, 18px);
+        }
+
+        .poster {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .poster img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .hint {
+            padding: 14px 16px;
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--stroke);
+            color: var(--muted);
+            background: rgba(0, 0, 0, 0.18);
+            font-size: 12px;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+        }
+
+        .pill b {
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+        }
+
+        .hidden { display: none !important; }
+
+        .result-title {
+            margin: 0;
+            font-size: clamp(18px, 2.5vw, 26px);
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+        }
+
+        .result-role {
+            margin: 10px 0 0 0;
+            font-size: clamp(22px, 3.5vw, 40px);
+            line-height: 1.03;
+            text-transform: uppercase;
+            letter-spacing: 1.6px;
+            text-shadow: 0 0 26px rgba(53, 243, 255, 0.18);
+            font-style: italic;
+        }
+
+        .result-desc {
+            margin: 12px 0 0 0;
+            color: var(--muted);
+            font-size: clamp(14px, 1.8vw, 16px);
+            line-height: 1.65;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <div class="app">
+        <div class="shell" role="application" aria-label="Team role quiz">
+            <div class="topbar">
+                <div class="brand">
+                    <div class="breaking-brand" aria-label="Breaking Brand">
+                        <div class="row"><span class="el">Br</span><span>eaking</span></div>
+                        <div class="row"><span class="el">B</span><span>rand 2026</span></div>
+                    </div>
+                </div>
+                <div class="tagline">
+                    <div><strong>Which team role are you?</strong></div>
+                    <div>Let's Find Out!</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="layout">
+                    <div class="card">
+                        <div class="card-hd">
+                            <h2 id="card-title">Ready?</h2>
+                            <div class="meta">
+                                <span id="progress-label">—</span>
+                                <div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+                            </div>
+                        </div>
+                        <div class="card-bd">
+                            <div id="start-screen" class="hero">
+                                <h1>Let us find your team role</h1>
+                                <p>
+                                    Answer a handful of fast questions. At the end, you’ll get a role card + a matching poster.
+                                </p>
+                                <div class="btn-row">
+                                    <button class="btn btn-primary" id="start-btn" type="button">Start</button>
+                                </div>
+                            </div>
+
+                            <div id="quiz-block" class="hidden" aria-live="polite">
+                                <div class="question" id="question-text">Question goes here</div>
+                                <div class="options" id="options-container"></div>
+                            </div>
+
+                            <div id="result-container" class="hidden">
+                                <p class="result-title">You got</p>
+                                <h1 class="result-role" id="role-title">—</h1>
+                                <p class="result-desc" id="role-desc">—</p>
+                                <div class="btn-row" style="margin-top: 14px;">
+                                    <button class="btn btn-primary" id="restart-btn" type="button">Try again</button>
+                                    <button class="btn" id="download-poster-btn" type="button" title="Download your poster image">Download poster</button>
+                                    <button class="btn" id="copy-btn" type="button" title="Copy share text for socials">Copy share text</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="side">
+                        <div class="card">
+                            <div class="card-hd">
+                                <h2>Your Role</h2>
+                                <div class="meta">
+                                    <span class="pill"><b id="poster-label">calculating</b></span>
+                                </div>
+                            </div>
+                            <div class="poster">
+                                <img id="poster-img" src="assets/poster-team.png" alt="Poster preview">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Surface runtime errors on-screen (helps when opening via file:// or kiosks)
+        (function attachErrorOverlay() {
+            const box = document.createElement("div");
+            box.style.position = "fixed";
+            box.style.left = "12px";
+            box.style.right = "12px";
+            box.style.bottom = "12px";
+            box.style.zIndex = "9999";
+            box.style.padding = "10px 12px";
+            box.style.borderRadius = "12px";
+            box.style.border = "1px solid rgba(255,255,255,0.18)";
+            box.style.background = "rgba(120, 0, 0, 0.55)";
+            box.style.color = "rgba(255,255,255,0.92)";
+            box.style.fontSize = "12px";
+            box.style.fontFamily = "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
+            box.style.display = "none";
+            box.style.whiteSpace = "pre-wrap";
+            document.body.appendChild(box);
+
+            function show(msg) {
+                box.textContent = msg;
+                box.style.display = "block";
+            }
+
+            window.addEventListener("error", (e) => {
+                show(`Error: ${e.message}\n${e.filename || ""}:${e.lineno || ""}:${e.colno || ""}`);
+            });
+            window.addEventListener("unhandledrejection", (e) => {
+                const reason = typeof e.reason === "string" ? e.reason : (e.reason && e.reason.message) ? e.reason.message : String(e.reason);
+                show(`Unhandled promise rejection: ${reason}`);
+            });
+        })();
+
+        const ROLE_KEYS = /** @type {const} */ (["slides", "mockups", "finance", "qa", "reliable"]);
+
+        const ROLE_META = {
+            slides: {
+                title: "The one who cooks the slides",
+                desc: "You build flow, story, and structure under pressure. When it’s time to pitch, your deck looks sharp and makes sense — every time.",
+                poster: { src: "assets/poster-slides.png", label: "slides" }
+            },
+            mockups: {
+                title: "The one who designs mockups",
+                desc: "You make it feel real. Visuals, UX, polish — you turn ideas into something people instantly understand.",
+                poster: { src: "assets/poster-mockups.png", label: "mockups" }
+            },
+            finance: {
+                title: "The finance guy of the team",
+                desc: "Numbers don’t scare you. You validate assumptions, protect margins, and keep the plan grounded in reality.",
+                poster: { src: "assets/poster-finance.png", label: "finance" }
+            },
+            qa: {
+                title: "The one who can answer in Q&A",
+                desc: "Fast, calm, persuasive. You translate messy questions into clean answers and keep the judges on your side.",
+                poster: { src: "assets/poster-qa.png", label: "Q&A" }
+            },
+            reliable: {
+                title: "The reliable one for last moment",
+                desc: "When chaos hits, you stabilize it. You troubleshoot, adapt, and quietly save the day without making it a big deal.",
+                poster: { src: "assets/poster-reliable.png", label: "reliable" }
+            }
+        };
+
+        const QUESTION_POOL = [
+            {
+                question: "Two hours to submission. What are you doing?",
+                options: [
+                    { text: "Fixing flow, story, and the slide order so it lands perfectly.", value: "slides" },
+                    { text: "Cleaning up spacing, typography, visuals, and the look & feel.", value: "mockups" },
+                    { text: "Rechecking pricing, costs, and whether the numbers are defensible.", value: "finance" },
+                    { text: "Rehearsing answers and sharpening the pitch delivery.", value: "qa" },
+                    { text: "Handling the last-minute fires nobody wants to touch.", value: "reliable" }
+                ]
+            },
+            {
+                question: "Which task do you enjoy most?",
+                options: [
+                    { text: "Turning a messy idea into a clear narrative.", value: "slides" },
+                    { text: "Making it beautiful and intuitive.", value: "mockups" },
+                    { text: "Modeling outcomes and trade-offs.", value: "finance" },
+                    { text: "Talking it through and winning buy-in.", value: "qa" },
+                    { text: "Getting it done even when plans change.", value: "reliable" }
+                ]
+            },
+            {
+                question: "A judge asks a tough question mid-pitch. You…",
+                options: [
+                    { text: "Bridge it back to the core story and proof.", value: "slides" },
+                    { text: "Show the UI / user journey to make it obvious.", value: "mockups" },
+                    { text: "Answer with crisp numbers and assumptions.", value: "finance" },
+                    { text: "Respond confidently and keep momentum.", value: "qa" },
+                    { text: "Jump in with a short, clean fix when needed.", value: "reliable" }
+                ]
+            },
+            {
+                question: "Your superpower in a team is…",
+                options: [
+                    { text: "Structure: turning chaos into a plan people can follow.", value: "slides" },
+                    { text: "Taste: knowing what looks and feels right.", value: "mockups" },
+                    { text: "Reality check: spotting weak assumptions early.", value: "finance" },
+                    { text: "Communication: making people believe in the idea.", value: "qa" },
+                    { text: "Stability: staying calm when things break.", value: "reliable" }
+                ]
+            },
+            {
+                question: "When brainstorming, you naturally…",
+                options: [
+                    { text: "Outline the storyline and what needs to be shown.", value: "slides" },
+                    { text: "Sketch screens, visuals, and examples.", value: "mockups" },
+                    { text: "Ask: “How does this make money?”", value: "finance" },
+                    { text: "Test how it will sound to an audience.", value: "qa" },
+                    { text: "Identify the risks and what could fail.", value: "reliable" }
+                ]
+            },
+            {
+                question: "Pick a tool you’d keep open all day.",
+                options: [
+                    { text: "Slides (PowerPoint / Google Slides).", value: "slides" },
+                    { text: "Design (Figma / Illustrator / Canva).", value: "mockups" },
+                    { text: "Sheets (Excel / Google Sheets).", value: "finance" },
+                    { text: "A mic + notes for talking points.", value: "qa" },
+                    { text: "Anything needed to unblock the team.", value: "reliable" }
+                ]
+            },
+            {
+                question: "The deck looks fine but feels boring. You…",
+                options: [
+                    { text: "Rewrite the story arc and tighten the message.", value: "slides" },
+                    { text: "Upgrade visuals: layout, icons, imagery, consistency.", value: "mockups" },
+                    { text: "Add stronger proof: market sizing, unit economics, traction.", value: "finance" },
+                    { text: "Add punchlines and delivery cues.", value: "qa" },
+                    { text: "Cut anything unnecessary and keep it shippable.", value: "reliable" }
+                ]
+            },
+            {
+                question: "If something fails right before pitching, you…",
+                options: [
+                    { text: "Rebuild the key slides quickly with the core message.", value: "slides" },
+                    { text: "Show prototypes or visuals directly from your device.", value: "mockups" },
+                    { text: "Deliver the essential numbers verbally and confidently.", value: "finance" },
+                    { text: "Improvise and keep the room engaged.", value: "qa" },
+                    { text: "Pull out the backup plan you prepared quietly.", value: "reliable" }
+                ]
+            },
+            {
+                question: "Your teammates know you for…",
+                options: [
+                    { text: "Making the final story make sense.", value: "slides" },
+                    { text: "Turning “meh” into “wow.”", value: "mockups" },
+                    { text: "Catching math mistakes instantly.", value: "finance" },
+                    { text: "Handling pressure live in front of people.", value: "qa" },
+                    { text: "Being the safety net.", value: "reliable" }
+                ]
+            },
+            {
+                question: "Which feedback hurts most?",
+                options: [
+                    { text: "“I’m confused about the story.”", value: "slides" },
+                    { text: "“It looks cheap.”", value: "mockups" },
+                    { text: "“Your assumptions don’t hold.”", value: "finance" },
+                    { text: "“That answer wasn’t convincing.”", value: "qa" },
+                    { text: "“We weren’t ready.”", value: "reliable" }
+                ]
+            },
+            {
+                question: "You walk into the room and notice…",
+                options: [
+                    { text: "Whether the pitch order tells a clean story.", value: "slides" },
+                    { text: "Whether the visuals match the vibe.", value: "mockups" },
+                    { text: "Whether the numbers add up and can be defended.", value: "finance" },
+                    { text: "Whether the room is engaged and listening.", value: "qa" },
+                    { text: "Whether anything is likely to break.", value: "reliable" }
+                ]
+            },
+            {
+                question: "If you had to lead one thing, it would be…",
+                options: [
+                    { text: "Deck structure + clarity.", value: "slides" },
+                    { text: "UI/visual identity.", value: "mockups" },
+                    { text: "Pricing + unit economics.", value: "finance" },
+                    { text: "Pitch + Q&A.", value: "qa" },
+                    { text: "Execution + risk control.", value: "reliable" }
+                ]
+            },
+            {
+                question: "Your default mode is…",
+                options: [
+                    { text: "Organize and simplify.", value: "slides" },
+                    { text: "Design and refine.", value: "mockups" },
+                    { text: "Measure and validate.", value: "finance" },
+                    { text: "Speak and persuade.", value: "qa" },
+                    { text: "Fix and stabilize.", value: "reliable" }
+                ]
+            },
+            {
+                question: "Which phrase sounds most like you?",
+                options: [
+                    { text: "“What’s the story we’re telling?”", value: "slides" },
+                    { text: "“This needs better spacing.”", value: "mockups" },
+                    { text: "“What’s the CAC and payback?”", value: "finance" },
+                    { text: "“Let me handle the question.”", value: "qa" },
+                    { text: "“I’ll take care of it.”", value: "reliable" }
+                ]
+            },
+            {
+                question: "You prefer decisions that are…",
+                options: [
+                    { text: "Clear and aligned with the narrative.", value: "slides" },
+                    { text: "Consistent with the brand and user experience.", value: "mockups" },
+                    { text: "Supported by numbers.", value: "finance" },
+                    { text: "Easy to communicate and sell.", value: "qa" },
+                    { text: "Practical to execute quickly.", value: "reliable" }
+                ]
+            },
+            {
+                question: "A teammate is stuck. You help by…",
+                options: [
+                    { text: "Reframing the problem and clarifying what matters.", value: "slides" },
+                    { text: "Showing an example or quick mock to unblock them.", value: "mockups" },
+                    { text: "Giving a simple model to decide between options.", value: "finance" },
+                    { text: "Explaining it in a persuasive, confident way.", value: "qa" },
+                    { text: "Jumping in and doing the hard part with them.", value: "reliable" }
+                ]
+            },
+            {
+                question: "After the pitch, what do you replay in your head?",
+                options: [
+                    { text: "Whether the story flowed like a movie.", value: "slides" },
+                    { text: "Whether the visuals were “poster-level.”", value: "mockups" },
+                    { text: "Whether the numbers were airtight.", value: "finance" },
+                    { text: "Whether each answer landed.", value: "qa" },
+                    { text: "Whether you covered every risk.", value: "reliable" }
+                ]
+            },
+            {
+                question: "If the team had a theme song, you’d be…",
+                options: [
+                    { text: "The beat that keeps it structured.", value: "slides" },
+                    { text: "The melody everyone remembers.", value: "mockups" },
+                    { text: "The bassline holding it down.", value: "finance" },
+                    { text: "The vocals on the hook.", value: "qa" },
+                    { text: "The producer fixing mistakes quietly.", value: "reliable" }
+                ]
+            },
+            {
+                question: "What do you optimize first?",
+                options: [
+                    { text: "Clarity.", value: "slides" },
+                    { text: "Delight.", value: "mockups" },
+                    { text: "Profitability.", value: "finance" },
+                    { text: "Confidence.", value: "qa" },
+                    { text: "Reliability.", value: "reliable" }
+                ]
+            },
+            {
+                question: "You’re asked to reduce the deck by 30%. You…",
+                options: [
+                    { text: "Cut fluff and keep only what supports the story.", value: "slides" },
+                    { text: "Compress with visuals instead of paragraphs.", value: "mockups" },
+                    { text: "Keep the critical numbers and proof points.", value: "finance" },
+                    { text: "Keep the best speaking moments and strongest lines.", value: "qa" },
+                    { text: "Cut mercilessly so it’s deliverable on time.", value: "reliable" }
+                ]
+            },
+            {
+                question: "What motivates you most?",
+                options: [
+                    { text: "A clean narrative that clicks.", value: "slides" },
+                    { text: "A design that looks premium.", value: "mockups" },
+                    { text: "A plan that survives scrutiny.", value: "finance" },
+                    { text: "A room that believes you.", value: "qa" },
+                    { text: "A team that ships no matter what.", value: "reliable" }
+                ]
+            },
+            {
+                question: "The team is debating endlessly. You…",
+                options: [
+                    { text: "Summarize and propose a simple direction.", value: "slides" },
+                    { text: "Mock it quickly to make the choice obvious.", value: "mockups" },
+                    { text: "Run quick numbers to decide.", value: "finance" },
+                    { text: "Pitch one option and get consensus.", value: "qa" },
+                    { text: "Pick the most feasible plan and move.", value: "reliable" }
+                ]
+            },
+            {
+                question: "Your ideal compliment is…",
+                options: [
+                    { text: "“That story was crystal clear.”", value: "slides" },
+                    { text: "“That looked insane (in a good way).”", value: "mockups" },
+                    { text: "“Those assumptions were solid.”", value: "finance" },
+                    { text: "“You handled that Q&A flawlessly.”", value: "qa" },
+                    { text: "“We’d be lost without you.”", value: "reliable" }
+                ]
+            }
+        ];
+
+        const QUESTIONS_PER_RUN = 12;
+
+        // Elements
+        const startScreen = document.getElementById("start-screen");
+        const startBtn = document.getElementById("start-btn");
+        const shuffleBtn = document.getElementById("shuffle-btn");
+        const quizBlock = document.getElementById("quiz-block");
+        const resultContainer = document.getElementById("result-container");
+        const questionText = document.getElementById("question-text");
+        const optionsContainer = document.getElementById("options-container");
+        const progressLabel = document.getElementById("progress-label");
+        const progressFill = document.getElementById("progress-fill");
+        const cardTitle = document.getElementById("card-title");
+        const roleTitle = document.getElementById("role-title");
+        const roleDesc = document.getElementById("role-desc");
+        const restartBtn = document.getElementById("restart-btn");
+        const copyBtn = document.getElementById("copy-btn");
+        const downloadPosterBtn = document.getElementById("download-poster-btn");
+        const posterImg = document.getElementById("poster-img");
+        const posterLabel = document.getElementById("poster-label");
+        const sideHint = document.getElementById("side-hint");
+        const questionCountPill = document.getElementById("question-count-pill");
+        const poolCountPill = document.getElementById("pool-count-pill");
+
+        // State
+        let runQuestions = [];
+        let currentQuestionIndex = 0;
+        let scores = Object.fromEntries(ROLE_KEYS.map(k => [k, 0]));
+
+        if (questionCountPill) questionCountPill.textContent = String(QUESTIONS_PER_RUN);
+        if (poolCountPill) poolCountPill.textContent = String(QUESTION_POOL.length);
+
+        function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
+
+        function pickQuestions() {
+            const shuffled = [...QUESTION_POOL].sort(() => Math.random() - 0.5);
+            runQuestions = shuffled.slice(0, clamp(QUESTIONS_PER_RUN, 5, QUESTION_POOL.length));
+            currentQuestionIndex = 0;
+            scores = Object.fromEntries(ROLE_KEYS.map(k => [k, 0]));
+            setPoster("assets/poster-team.png", "play the game to find out", "Start when you're ready.");
+            if (progressLabel) progressLabel.textContent = "—";
+            if (progressFill) progressFill.style.width = "0%";
+            if (cardTitle) cardTitle.textContent = "Ready?";
+        }
+
+        function setPoster(src, label, hint) {
+            if (posterImg) posterImg.src = src;
+            if (posterLabel) posterLabel.textContent = label;
+            if (hint && sideHint) sideHint.textContent = hint;
+        }
+
+        function show(el) { el.classList.remove("hidden"); }
+        function hide(el) { el.classList.add("hidden"); }
+
+        function beginQuiz() {
+            hide(startScreen);
+            hide(resultContainer);
+            show(quizBlock);
+            if (cardTitle) cardTitle.textContent = "Question";
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = runQuestions[currentQuestionIndex];
+            if (!q) {
+                // If the run question set is missing (or index is out of range), reset safely.
+                pickQuestions();
+                hide(quizBlock);
+                hide(resultContainer);
+                show(startScreen);
+                return;
+            }
+
+            if (questionText) questionText.textContent = q.question;
+            if (optionsContainer) optionsContainer.innerHTML = "";
+
+            const total = runQuestions.length;
+            const current = currentQuestionIndex + 1;
+            if (progressLabel) progressLabel.textContent = `${current}/${total}`;
+            if (progressFill) progressFill.style.width = `${Math.round((current / total) * 100)}%`;
+
+            // subtle poster changes to keep the vibe
+            setPoster("assets/poster-team.png", "in progress", "Go with your instinct — first choice is usually right.");
+
+            q.options.forEach(option => {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "option-btn";
+                btn.textContent = option.text;
+                btn.addEventListener("click", () => selectOption(option.value));
+                if (optionsContainer) optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(roleKey) {
+            if (!scores[roleKey] && scores[roleKey] !== 0) return;
+            scores[roleKey]++;
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < runQuestions.length) {
+                loadQuestion();
+                return;
+            }
+            showResult();
+        }
+
+        function breakTies(tiedKeys) {
+            // Prefer roles with higher "weighted" distribution from answers (simple random tie-break)
+            return tiedKeys[Math.floor(Math.random() * tiedKeys.length)];
+        }
+
+        function showResult() {
+            hide(quizBlock);
+            show(resultContainer);
+            if (cardTitle) cardTitle.textContent = "Result";
+
+            const entries = Object.entries(scores);
+            const max = Math.max(...entries.map(([, v]) => v));
+            const tied = entries.filter(([, v]) => v === max).map(([k]) => k);
+            const winner = tied.length === 1 ? tied[0] : breakTies(tied);
+
+            if (roleTitle) roleTitle.textContent = ROLE_META[winner].title;
+            if (roleDesc) roleDesc.textContent = ROLE_META[winner].desc;
+            setPoster(ROLE_META[winner].poster.src, ROLE_META[winner].poster.label, "Your poster is ready.");
+
+            if (progressLabel) progressLabel.textContent = `${runQuestions.length}/${runQuestions.length}`;
+            if (progressFill) progressFill.style.width = "100%";
+        }
+
+        async function copyResult() {
+            const role = (roleTitle && roleTitle.textContent ? roleTitle.textContent.trim() : "—");
+            const text = `My team role for Breaking Brand 2026 is \"${role}\"`;
+            try {
+                await navigator.clipboard.writeText(text);
+                copyBtn.textContent = "Copied";
+                setTimeout(() => (copyBtn.textContent = "Copy share text"), 900);
+            } catch {
+                // Fallback: no clipboard permissions (older browsers / file:// restrictions)
+                const ta = document.createElement("textarea");
+                ta.value = text;
+                ta.style.position = "fixed";
+                ta.style.left = "-9999px";
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand("copy");
+                document.body.removeChild(ta);
+                copyBtn.textContent = "Copied";
+                setTimeout(() => (copyBtn.textContent = "Copy share text"), 900);
+            }
+        }
+
+        async function downloadPoster() {
+            const src = posterImg && posterImg.src ? posterImg.src : "";
+            if (!src) return;
+
+            const role = (roleTitle && roleTitle.textContent ? roleTitle.textContent.trim() : "poster")
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-+|-+$/g, "");
+
+            const filename = `breaking-brand-2026-${role || "poster"}.png`;
+
+            // Prefer a direct download (works best when hosted)
+            try {
+                const a = document.createElement("a");
+                a.href = src;
+                a.download = filename;
+                a.rel = "noopener";
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                return;
+            } catch {
+                // fall through
+            }
+
+            // Fallback: fetch as blob (helps in some environments)
+            try {
+                const res = await fetch(src, { cache: "no-cache" });
+                const blob = await res.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = filename;
+                a.rel = "noopener";
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+            } catch {
+                // If downloads are blocked (some file:// contexts), at least open the image
+                window.open(src, "_blank", "noopener,noreferrer");
+            }
+        }
+
+        // Events
+        if (startBtn) startBtn.addEventListener("click", beginQuiz);
+        if (shuffleBtn) shuffleBtn.addEventListener("click", () => {
+            pickQuestions();
+            // quick visual feedback
+            shuffleBtn.textContent = "Shuffled";
+            setTimeout(() => (shuffleBtn.textContent = "Shuffle questions"), 900);
+        });
+        if (restartBtn) restartBtn.addEventListener("click", () => {
+            pickQuestions();
+            hide(resultContainer);
+            hide(quizBlock);
+            show(startScreen);
+        });
+        if (copyBtn) copyBtn.addEventListener("click", copyResult);
+        if (downloadPosterBtn) downloadPosterBtn.addEventListener("click", downloadPoster);
+
+        // Init
+        pickQuestions();
+    </script>
+</body>
+</html>
